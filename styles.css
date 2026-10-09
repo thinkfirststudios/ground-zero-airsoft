@@ -1,14 +1,14 @@
 /* ==========================================================================
    Ground Zero Airsoft USA — spec mockup
-   Register: their own badge. True black + white + logo tan (#C9A961, CONFIRM
-   from the logo file). Tan draws lines and sets figures; it never fills area.
+   Register: their own badge. True black + white + logo tan (#C8B67A, sampled
+   from their logo file). Tan draws lines and sets figures; it never fills area.
    Heavy, wide, warm, institutional. NO BLUE anywhere: the theme-default blue
    is gone, and electric blue belongs to another lead in this folder.
    The reticle is the design system: rings, crosshairs, tick rings, brackets.
    ========================================================================== */
 
 @property --arm { syntax: "<length>"; inherits: true; initial-value: 14px; }
-@property --bc  { syntax: "<color>";  inherits: true; initial-value: #7A6637; }
+@property --bc  { syntax: "<color>";  inherits: true; initial-value: #7A6F4A; }
 
 :root {
   --zero: #000000;          /* true black — the logo's ground, ~80% of every page */
@@ -18,9 +18,9 @@
   --muted: #8A8A8A;         /* 6.1:1 on black */
   --body: #D6D6D6;
   --white: #FFFFFF;         /* display type, the dominant high-contrast voice */
-  --tan: #C9A961;           /* [CONFIRM — SAMPLE FROM LOGO FILE] precious minority accent, ~5%: lines and figures, never area */
-  --tan-dim: #7A6637;
-  --tan-wash: rgba(201, 169, 97, .07);
+  --tan: #C8B67A;           /* sampled from their logo file (assets/logo-gza.png), 2026-10-09. Minority accent, ~5%: lines and figures, never area */
+  --tan-dim: #7A6F4A;
+  --tan-wash: rgba(200, 182, 122, .07);
 
   --f-display: "Archivo Black", "Arial Black", sans-serif;
   --f-body: "Fira Sans", system-ui, sans-serif;
@@ -532,7 +532,7 @@ a:hover { color: var(--tan); }
 .hero-inner { display: grid; justify-items: center; padding-top: 72px; }
 .badge-lockup { position: relative; width: clamp(200px, 30vw, 300px); aspect-ratio: 1; margin: 0 auto 26px; color: var(--tan); }
 .badge-lockup::before { /* restrained tan sheen — same family, two stops; the tan itself stays flat */
-  content: ""; position: absolute; inset: 14%; border-radius: 50%; background: radial-gradient(circle at 50% 38%, rgba(201, 169, 97, .16), rgba(201, 169, 97, 0) 70%); }
+  content: ""; position: absolute; inset: 14%; border-radius: 50%; background: radial-gradient(circle at 50% 38%, rgba(200, 182, 122, .16), rgba(200, 182, 122, 0) 70%); }
 .badge-lockup svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
 .badge-lockup .ring-text { font: 400 9.5px/1 var(--f-display); letter-spacing: .32em; fill: var(--white); }
 .badge-lockup .logo-slot { position: absolute; inset: 31%; border-radius: 50%; border: 1px dashed var(--tan-dim); display: grid; place-items: center; text-align: center; padding: 6px;
@@ -667,3 +667,11 @@ a:hover { color: var(--tan); }
   .hero-inner { padding-top: 96px; }
   .stat-ring { max-width: 132px; }
 }
+
+/* ---------- Real logo (supplied 2026-10-09) ---------- */
+.badge-lockup { width: clamp(220px, 32vw, 340px); }
+.badge-lockup .logo-img { position: absolute; inset: 4%; width: 92%; height: 92%; object-fit: contain; }
+.js-motion .badge-lockup .logo-img { animation: converge 500ms var(--ease) both 120ms; }
+.brand { gap: 12px; }
+.brand-logo { width: 44px; height: 44px; flex: none; }
+.foot-logo { width: 140px; height: auto; margin-bottom: 16px; }
