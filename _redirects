@@ -1,0 +1,36 @@
+# Netlify / Cloudflare Pages — only used if Ground Zero signs and the site migrates off WordPress/BeTheme.
+
+# --- Preserve their real paths ---
+/upgrade-repair/    /upgrade-repair.html    200
+/upgrade-repair     /upgrade-repair.html    200
+/gallery/           /gallery.html           200
+/gallery            /gallery.html           200
+/contact/           /contact.html           200
+/contact            /contact.html           200
+
+# --- Waiver: keep the year-stamped PDF reachable, then give it a STABLE home ---
+# The PDF must be copied into the new build at both paths. [WAIVER PDF FILE — COPY FROM LIVE SITE AT MIGRATION]
+# Next year's revision replaces /field-waiver.pdf in place; nothing linking to it breaks.
+/wp-content/uploads/2026/09/GZA_Waiver_FillableNEW.pdf    /field-waiver.pdf    301
+
+# --- /pricing/ and /faq/ currently serve BeTheme DEMO content (fake prices, lorem ipsum) ---
+# Decision is pre-launch item L1. Recommendation: 410 Gone until real admission prices exist.
+# Netlify has no native 410; serve a 410 via an edge function or the host's equivalent. [410 MECHANISM — CONFIRM WITH HOST]
+# Fallback shown below is a 301 to the closest real page. Pick ONE per path before launch.
+/pricing/    /events.html    301
+/pricing     /events.html    301
+/faq/        /rules.html     301
+/faq         /rules.html     301
+
+# [FULL ORPHAN PAGE INVENTORY — ALEX TO CRAWL BEFORE MIGRATION (L12)]
+# /pricing/ and /faq/ were orphaned from the nav and still live — there are probably more BeTheme demo pages.
+
+# --- Pretty permalinks for the new pages ---
+/field     /field.html     200
+/rules     /rules.html     200
+/store     /store.html     200
+/events    /events.html    200
+/visit     /visit.html     200
+/waiver    /waiver.html    200
+/privacy   /privacy.html   200
+/terms     /terms.html     200
